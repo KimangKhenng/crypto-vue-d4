@@ -7,31 +7,27 @@
     </div>
 
     <!-- header section strats -->
+    <!-- <span :class="{ 'red-text': changedColor }"> {{ services[0] }} </span>
+    <button @click="switchColor">Switch to red</button>
+    <p class="red-text">{{ $parent.text }}</p>
+    <button @click=" this.$parent.text = 'Changed from child'">Change parent value</button> -->
+
     <header class="header_section">
       <div class="container-fluid">
         <nav class="navbar navbar-expand-lg custom_nav-container">
           <a class="navbar-brand" href="index.html">
-            <span> {{ services[0] }} </span>
+            <span> {{ text }} </span>
           </a>
 
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class=""> </span>
           </button>
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav">
               <li class="nav-item active">
-                <a class="nav-link" href="index.html"
-                  >Home <span class="sr-only">(current)</span></a
-                >
+                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="about.html"> About</a>
@@ -47,8 +43,7 @@
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">
-                  <i class="fa fa-user" aria-hidden="true"></i> Login</a
-                >
+                  <i class="fa fa-user" aria-hidden="true"></i> Login</a>
               </li>
               <form class="form-inline">
                 <button class="btn my-2 my-sm-0 nav_search-btn" type="submit">
@@ -153,11 +148,7 @@
           </div> -->
         </div>
         <ol class="carousel-indicators">
-          <li
-            data-target="#customCarousel1"
-            data-slide-to="0"
-            class="active"
-          ></li>
+          <li data-target="#customCarousel1" data-slide-to="0" class="active"></li>
           <li data-target="#customCarousel1" data-slide-to="1"></li>
           <li data-target="#customCarousel1" data-slide-to="2"></li>
         </ol>
@@ -169,15 +160,25 @@
 <script>
 import axios from "axios";
 export default {
+  props: {
+    text: {
+      type: String,
+      default: 'Hello'
+    }
+  },
   data() {
     return {
       services: ["Hello", "Hello2"],
+      changedColor: false
     };
   },
   methods: {
     updateTitle() {
       this.services[0] = "Updated!";
     },
+    switchColor() {
+      this.changedColor = !this.changedColor
+    }
   },
   beforeCreate() {
     console.log("Before created");
@@ -211,3 +212,9 @@ export default {
   },
 };
 </script>
+<style>
+.red-text {
+  color: red;
+}
+</style>
+<!-- Useful when overriding global style -->

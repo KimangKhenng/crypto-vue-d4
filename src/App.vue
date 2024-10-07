@@ -1,5 +1,6 @@
 <template>
-  <HeroArea v-if="!remove"></HeroArea>
+  <span class="red-text">Test if component's style work outside component</span>
+  <HeroArea :text="'Static Text'" v-if="!remove"></HeroArea>
   <button @click="changeValue">Remove from DOM</button>
   <Course></Course>
   <ServiceSection></ServiceSection>
@@ -12,6 +13,7 @@ export default {
   data() {
     return {
       remove: false,
+      text: "Hello World"
     };
   },
   methods: {
