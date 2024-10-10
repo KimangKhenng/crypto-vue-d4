@@ -17,9 +17,7 @@
                                         repudiandae earum suscipit fugiat molestias, veniam, vel
                                         architecto veritatis delectus repellat modi impedit sequi.
                                     </p>
-                                    <div class="btn-box">
-                                        <a href="" class="btn1"> Read More </a>
-                                    </div>
+                                    <MainButton text="Read More"></MainButton>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -95,3 +93,12 @@
         </div>
     </section>
 </template>
+<script>
+import MainButton from '@/components/buttons/MainButton.vue';
+export default {
+    components: {
+        MainButton
+    }
+
+}
+</script>

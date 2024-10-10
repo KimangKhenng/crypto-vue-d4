@@ -21,8 +21,8 @@
                         <li class="nav-item" :class="{ 'active': $route.path == '/about' }">
                             <router-link class="nav-link" to="/about"> About</router-link>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="service.html">Services</a>
+                        <li class="nav-item" :class="{ 'active': $route.path == '/register' }">
+                            <router-link class="nav-link" to="/register">Register</router-link>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="why.html">Why Us</a>

@@ -10,26 +10,21 @@
           </p>
         </div>
         <div class="row">
-          <CourseCard
-            v-for="(course, index) in courses"
-            :key="index"
-            :title="course.title"
-            :short-description="course.shortDescription"
-            :price="course.price"
-          ></CourseCard>
+          <CourseCard v-for="(course, index) in courses" :key="index" :title="course.title"
+            :short-description="course.shortDescription" :price="course.price"></CourseCard>
         </div>
-        <div class="btn-box">
-          <a href=""> View All </a>
-        </div>
+        <MainButton text="Read More" />
+
       </div>
     </div>
   </section>
 </template>
 <script>
 import CourseCard from "@/components/cards/CourseCard.vue";
+import MainButton from "@/components/buttons/MainButton.vue";
 import axios from "axios";
 export default {
-  components: { CourseCard },
+  components: { CourseCard, MainButton },
   data() {
     return {
       courses: [],

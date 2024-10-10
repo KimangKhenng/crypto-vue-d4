@@ -10,26 +10,38 @@
           </p>
         </div>
         <div class="row">
-          <ServiceCard
-            v-for="(item, index) in services"
-            :key="index"
-            :name="item.name"
-            :desc="item.name"
-            :image="item.image"
-          ></ServiceCard>
+          <ServiceCard v-for="(item, index) in services" :key="index" :name="item.name" :desc="item.name"
+            :image="item.image">
+            <template v-if="index % 2 == 0" #top>
+              <div>This is external template top</div>
+            </template>
+            <template #buttom>
+              <figure class="text-end">
+                <blockquote class="blockquote">
+                  <p>A well-known quote, contained in a blockquote element.</p>
+                </blockquote>
+                <figcaption class="blockquote-footer">
+                  Someone famous in <cite title="Source Title">Source Title</cite>
+                </figcaption>
+              </figure>
+            </template>
+          </ServiceCard>
         </div>
-        <div class="btn-box">
-          <a href=""> View All </a>
-        </div>
+
+        <MainButton @custom-click="handleSth" text="View All">
+          💗
+        </MainButton>
       </div>
     </div>
   </section>
 </template>
 <script>
 import ServiceCard from "@/components/cards/ServiceCard.vue";
+import MainButton from "@/components/buttons/MainButton.vue";
 export default {
   components: {
     ServiceCard,
+    MainButton
   },
   data() {
     return {
@@ -52,5 +64,10 @@ export default {
       ],
     };
   },
+  methods: {
+    handleSth(value) {
+      console.log(value)
+    }
+  }
 };
 </script>
